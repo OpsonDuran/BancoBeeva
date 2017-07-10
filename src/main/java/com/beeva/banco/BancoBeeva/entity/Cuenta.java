@@ -1,7 +1,16 @@
 package com.beeva.banco.BancoBeeva.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="cuenta")
 public class Cuenta {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idCuenta;
 	private double balance;
 	private int idCliente;
