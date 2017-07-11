@@ -6,43 +6,47 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.beeva.banco.BancoBeeva.dao.ClienteDao;
-import com.beeva.banco.BancoBeeva.entity.Cliente;
+import com.beeva.banco.BancoBeeva.dao.BancosClientesDao;
+import com.beeva.banco.BancoBeeva.entity.BancosClientes;
 
 @Repository
-public class ClienteDaoImpl extends ClienteDao{
+public class BancosClientesDaoImpl extends BancosClientesDao {
 	@PersistenceContext
 	EntityManager entityManager;
 
-	@Override
-	public Cliente saveCliente(Cliente cliente) {
+
+	@Transactional
+	public BancosClientes saveBancosCLientes(BancosClientes bancosclientes) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	public BancosClientes removeBancosClientes(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	public BancosClientes updateBancosClientes(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	public BancosClientes getBancosClientes(int Id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Cliente removeCLiente(int id) {
+	public ArrayList<BancosClientes> listBancosClientes() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public Cliente updateCLiente(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Cliente getCliente(int Id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<Cliente> listClientes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

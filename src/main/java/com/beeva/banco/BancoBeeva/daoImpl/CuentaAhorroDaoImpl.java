@@ -2,11 +2,13 @@ package com.beeva.banco.BancoBeeva.daoImpl;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Repository;
+
 import com.beeva.banco.BancoBeeva.dao.CuentaDao;
 import com.beeva.banco.BancoBeeva.entity.Cliente;
 import com.beeva.banco.BancoBeeva.entity.Cuenta;
 
-
+@Repository
 public class CuentaAhorroDaoImpl extends CuentaDao {
 	
 	

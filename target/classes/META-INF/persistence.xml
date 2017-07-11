@@ -6,8 +6,8 @@
 <persistence-unit name="persis">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>		
 		<class>com.beeva.banco.BancoBeeva.entity.Banco</class>
-		<class>com.beeva.banco.BancoBeeva.entity.Cliente</class>
 		<class>com.beeva.banco.BancoBeeva.entity.Cuenta</class>
+		<class>com.beeva.banco.BancoBeeva.entity.Cliente</class>
 		<class>com.beeva.banco.BancoBeeva.entity.TipoCuenta</class>
 	</persistence-unit>
 

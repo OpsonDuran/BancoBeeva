@@ -1,5 +1,11 @@
 package com.beeva.banco.BancoBeeva;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.beeva.banco.BancoBeeva.dao.BancoDao;
+import com.beeva.banco.BancoBeeva.daoImpl.BancoDaoImpl;
+import com.beeva.banco.BancoBeeva.entity.Banco;
+
 /**
  * @author Armando Duran Salavdor
  *
@@ -9,7 +15,13 @@ public class App
 {
     public static void main( String[] args )
     {
-    	
-        System.out.println( "Hello World!" );
+    	ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
+    	Banco banco = new Banco();
+    	BancoDao bancoDao =(BancoDao) context.getBean(BancoDaoImpl.class);
+    	banco.setNombre("Banjio");
+    	int id=bancoDao.saveBanco(banco).getIdBanco();
+    	String nombre=bancoDao.getBanco(id).getNombre();
+    	int ids=bancoDao.getBanco(id).getIdBanco();
+    	System.out.println("id: "+ids+" : "+nombre);
     }
 }

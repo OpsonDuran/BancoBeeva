@@ -2,11 +2,20 @@ package com.beeva.banco.BancoBeeva.daoImpl;
 
 import java.util.ArrayList;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
 import com.beeva.banco.BancoBeeva.dao.CuentaDao;
 import com.beeva.banco.BancoBeeva.entity.Cliente;
 import com.beeva.banco.BancoBeeva.entity.Cuenta;
 
+@Repository
 public class CuentaChequesDaoImpl extends CuentaDao{
+	@PersistenceContext
+	EntityManager entityManager;
+	
 
 	@Override
 	public boolean Deposito(Cliente cliente, double dinero) {
@@ -20,7 +29,8 @@ public class CuentaChequesDaoImpl extends CuentaDao{
 
 	@Override
 	public Cuenta saveCuenta(Cuenta cuenta) {
-		return null;
+		entityManager.persist(cuenta);
+		return cuenta;
 	}
 
 	@Override
