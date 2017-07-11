@@ -9,6 +9,4 @@ public abstract class ClienteDao {
 	public abstract Cliente updateCLiente(int id);
 	public abstract Cliente getCliente(int Id);
 	public abstract ArrayList<Cliente> listClientes();
-	
-
 }

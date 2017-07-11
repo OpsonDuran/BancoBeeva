@@ -10,12 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.beeva.banco.BancoBeeva.dao.BancosClientesDao;
 import com.beeva.banco.BancoBeeva.entity.BancosClientes;
+import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
 
 @Repository
 public class BancosClientesDaoImpl extends BancosClientesDao {
 	@PersistenceContext
 	EntityManager entityManager;
-
 
 	@Transactional
 	public BancosClientes saveBancosCLientes(BancosClientes bancosclientes) {
