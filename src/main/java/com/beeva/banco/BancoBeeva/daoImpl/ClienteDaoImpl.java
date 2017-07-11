@@ -6,40 +6,41 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.beeva.banco.BancoBeeva.dao.ClienteDao;
 import com.beeva.banco.BancoBeeva.entity.Cliente;
+import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
 
 @Repository
 public class ClienteDaoImpl extends ClienteDao{
 	@PersistenceContext
 	EntityManager entityManager;
+	BancoLog log= new BancoLog();
 
-	@Override
+	@Transactional
 	public Cliente saveCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
+		entityManager.persist(cliente);
+		log.clienteLog(cliente);
+		return cliente;
 	}
 
-	@Override
+	
 	public Cliente removeCLiente(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Cliente updateCLiente(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Cliente getCliente(int Id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ArrayList<Cliente> listClientes() {
 		// TODO Auto-generated method stub
 		return null;

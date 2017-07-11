@@ -32,5 +32,10 @@
 		<property name="username" value="root"></property>
 		<property name="password" value="Beeva2017*"></property>
 	</bean>
+	
+	<bean id="logbanco" class="com.mongodb.MongoClient">
+	<constructor-arg name="port" value="27017"></constructor-arg>
+	<constructor-arg name="host" value="localhost"></constructor-arg>
+	</bean>
 
 </beans>

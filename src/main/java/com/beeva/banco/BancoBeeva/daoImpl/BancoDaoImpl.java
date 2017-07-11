@@ -5,21 +5,30 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.beeva.banco.BancoBeeva.dao.BancoDao;
 import com.beeva.banco.BancoBeeva.entity.Banco;
+import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
 
 @Repository
 public class BancoDaoImpl extends BancoDao{
 	@PersistenceContext
 	EntityManager entityManager;
+	BancoLog log=new BancoLog();
 
 
 	@Transactional
 	public Banco saveBanco(Banco banco) {
 		entityManager.persist(banco);
+    	log.bancoLog(banco);
 		return banco;
 	}
 
