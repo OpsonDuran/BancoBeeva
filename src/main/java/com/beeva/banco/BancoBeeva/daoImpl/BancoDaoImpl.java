@@ -19,9 +19,7 @@ public class BancoDaoImpl extends BancoDao{
 
 	@Transactional
 	public Banco saveBanco(Banco banco) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(banco);
-		entityManager.getTransaction().commit();
 		return banco;
 	}
 
