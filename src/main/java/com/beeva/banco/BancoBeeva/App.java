@@ -26,7 +26,7 @@ public class App
     	ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
     	Banco banco = new Banco();
     	BancoDao bancoDao =(BancoDao) context.getBean(BancoDaoImpl.class);
-    	banco.setNombre("Bankito");
+    	banco.setNombre("Banorte");
     	int id=bancoDao.saveBanco(banco).getIdBanco();
     	String nombre=bancoDao.getBanco(id).getNombre();
     	int ids=bancoDao.getBanco(id).getIdBanco();
@@ -34,8 +34,8 @@ public class App
     	
     	Cliente cliente= new Cliente();
     	ClienteDao clienteDao=(ClienteDao) context.getBean(ClienteDaoImpl.class);
-    	cliente.setNombre("Hector");
-    	cliente.setApellido("Duran");
+    	cliente.setNombre("Juan");
+    	cliente.setApellido("Perez");
     	clienteDao.saveCliente(cliente);
     }
 }

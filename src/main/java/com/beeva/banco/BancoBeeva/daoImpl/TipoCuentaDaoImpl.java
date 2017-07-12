@@ -10,35 +10,34 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.beeva.banco.BancoBeeva.dao.TipoCuentaDao;
 import com.beeva.banco.BancoBeeva.entity.TipoCuenta;
+import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
 
 @Repository
 public class TipoCuentaDaoImpl extends TipoCuentaDao{
 	@PersistenceContext
 	EntityManager entityManager;
-	
+	BancoLog log=new BancoLog();
+
 	@Transactional
 	public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta) {
 		entityManager.persist(tipoCuenta);
+		log.TipoCuentaLog(tipoCuenta);
 		return tipoCuenta;
 	}
 
 	public TipoCuenta removeTipoCuenta(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	public TipoCuenta updateTipoCuenta(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public TipoCuenta getTipoCuenta(int Id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public ArrayList<TipoCuenta> listTipoCuenta() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

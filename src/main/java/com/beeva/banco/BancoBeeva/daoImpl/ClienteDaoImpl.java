@@ -16,7 +16,7 @@ import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
 public class ClienteDaoImpl extends ClienteDao{
 	@PersistenceContext
 	EntityManager entityManager;
-	BancoLog log= new BancoLog();
+	BancoLog log=new BancoLog();
 
 	@Transactional
 	public Cliente saveCliente(Cliente cliente) {
@@ -25,24 +25,19 @@ public class ClienteDaoImpl extends ClienteDao{
 		return cliente;
 	}
 
-	
 	public Cliente removeCLiente(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Cliente updateCLiente(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Cliente getCliente(int Id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public ArrayList<Cliente> listClientes() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

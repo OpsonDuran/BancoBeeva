@@ -16,37 +16,29 @@ import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
 public class BancosClientesDaoImpl extends BancosClientesDao {
 	@PersistenceContext
 	EntityManager entityManager;
+	BancoLog log=new BancoLog();
 
 	@Transactional
-	public BancosClientes saveBancosCLientes(BancosClientes bancosclientes) {
-		// TODO Auto-generated method stub
-		return null;
+	public BancosClientes saveBancosCLientes(BancosClientes bancosClientes) {
+		entityManager.persist(bancosClientes);
+		log.bancosClientesLog(bancosClientes);
+		return bancosClientes;
 	}
 
-	
 	public BancosClientes removeBancosClientes(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public BancosClientes updateBancosClientes(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public BancosClientes getBancosClientes(int Id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ArrayList<BancosClientes> listBancosClientes() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }

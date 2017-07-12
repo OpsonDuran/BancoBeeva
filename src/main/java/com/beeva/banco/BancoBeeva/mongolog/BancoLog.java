@@ -43,7 +43,7 @@ public class BancoLog {
 		document.put("nombre",banco.getNombre());
 		table.insert(document);
 	}
-	public void bancoClientesLog(BancosClientes bancoClientes){
+	public void bancosClientesLog(BancosClientes bancoClientes){
 		ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
 		MongoClient mongo =(MongoClient)context.getBean("logbanco");
 	    DB db= mongo.getDB("bancoapplog");
