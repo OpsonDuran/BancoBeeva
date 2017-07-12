@@ -9,6 +9,7 @@
 		<class>com.beeva.banco.BancoBeeva.entity.Cliente</class>
 		<class>com.beeva.banco.BancoBeeva.entity.Cuenta</class>
 		<class>com.beeva.banco.BancoBeeva.entity.TipoCuenta</class>
+		<class>com.beeva.banco.BancoBeeva.entity.BancosClientes</class>
 </persistence-unit>
 
 </persistence>

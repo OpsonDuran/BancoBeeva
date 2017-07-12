@@ -7,14 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cuenta")
+@Table(name = "cuenta")
 public class Cuenta {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCuenta;
 	private double balance;
 	private int idCliente;
-	private int tipoCuenta;
+	private int idTipoCuenta;
 	
 	public int getIdCuenta() {
 		return idCuenta;
@@ -34,12 +34,10 @@ public class Cuenta {
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
-	public int getTipoCuenta() {
-		return tipoCuenta;
+	public int getIdTipoCuenta() {
+		return idTipoCuenta;
 	}
-	public void setTipoCuenta(int tipoCuenta) {
-		this.tipoCuenta = tipoCuenta;
+	public void setIdTipoCuenta(int idTipoCuenta) {
+		this.idTipoCuenta = idTipoCuenta;
 	}
-	
-
 }

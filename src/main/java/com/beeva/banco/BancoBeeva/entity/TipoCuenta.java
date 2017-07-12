@@ -12,8 +12,7 @@ public class TipoCuenta {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idtipocuenta;
-	private String nombre;
-	
+	private String nombre;	
 	
 	public int getIdtipocuenta() {
 		return idtipocuenta;
