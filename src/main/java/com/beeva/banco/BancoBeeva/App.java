@@ -16,6 +16,7 @@ import com.beeva.banco.BancoBeeva.entity.Cliente;
 import com.beeva.banco.BancoBeeva.entity.Cuenta;
 import com.beeva.banco.BancoBeeva.entity.TipoCuenta;
 import com.beeva.banco.BancoBeeva.factory.CuentaFactory;
+import com.beeva.banco.BancoBeeva.singleton.ContextSing;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -30,9 +31,9 @@ public class App
 {
     public static void main( String[] args )
     {
-    	ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
+        ContextSing con= ContextSing.getInstance();
     	Banco banco = new Banco();
-    	BancoDao bancoDao =(BancoDao) context.getBean(BancoDaoImpl.class);
+    	BancoDao bancoDao =(BancoDao) con.getContext().getBean(BancoDaoImpl.class);
     	banco.setNombre("Bankote");
     	int id=bancoDao.saveBanco(banco).getIdBanco();
     	String nombre=bancoDao.getBanco(id).getNombre();
@@ -40,7 +41,7 @@ public class App
     	System.out.println("id: "+ids+" : "+nombre);
     	
     	Cliente cliente= new Cliente();
-    	ClienteDao clienteDao=(ClienteDao) context.getBean(ClienteDaoImpl.class);
+    	ClienteDao clienteDao=(ClienteDao) con.getContext().getBean(ClienteDaoImpl.class);
     	cliente.setNombre("Jose");
     	cliente.setApellido("Larios");
     	clienteDao.saveCliente(cliente);
