@@ -1,9 +1,11 @@
 package com.beeva.banco.BancoBeeva.mongolog;
 
+import org.hibernate.type.descriptor.java.UUIDTypeDescriptor.ToStringTransformer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.util.Date; 
 
 import com.beeva.banco.BancoBeeva.entity.Banco;
@@ -15,7 +17,6 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
-import com.mysql.jdbc.Field;
 
 public class BancoLog {
 	
@@ -85,18 +86,24 @@ public class BancoLog {
 		document.put("nombre",tipoCuenta.getNombre());
 		table.insert(document);
 	}
-	/*
-	private static void introspectInstance(Object anObject, PrintWriter printer) throws IllegalArgumentException,  llegalAccessException {
+	
+	private static BasicDBObject introspectInstance(Object anObject, PrintWriter printer) throws IllegalArgumentException, IllegalAccessException {
 
+		BasicDBObject document = new BasicDBObject();
 		 Class objectType = anObject.getClass();
+		 document.put("Mensaje","se agrego");
+		 document.put("tipo","objectType.getSimpleName()");
+		 document.put("fecha",new Date());
 		 printer.println("Un " + objectType.getSimpleName() + "");
-		 for (Field field : objectType.getDeclaredFields(). {
+		 for (Field field : objectType.getDeclaredFields()) {
 		 field.setAccessible(true);
 		 printer.print("\tcon ");
 		 printer.print(field.getName());
-		 printer.println(" = " + toString(field.get(anObject)));
+		 printer.println(field.get(anObject));
+		 document.put(field.getName(), field.get(anObject));
 		 }
 		 printer.flush();
+		 return document;
 		}
-	*/
+	
 }
