@@ -19,7 +19,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 
 public class BancoLog {
-	
+	/*
 	public void clienteLog(Cliente cliente){
 		ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
 		MongoClient mongo =(MongoClient)context.getBean("logbanco");
@@ -86,19 +86,35 @@ public class BancoLog {
 		document.put("nombre",tipoCuenta.getNombre());
 		table.insert(document);
 	}
-	
+	*/
+	public void ObjectLog(Object clase){
+		ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
+		MongoClient mongo =(MongoClient)context.getBean("logbanco");
+	    DB db= mongo.getDB("bancolog");
+		DBCollection table = db.getCollection("logcollection");
+		
+		try {
+			table.insert(introspectInstance(clase,new PrintWriter(System.out)));
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	private static BasicDBObject introspectInstance(Object anObject, PrintWriter printer) throws IllegalArgumentException, IllegalAccessException {
 
 		BasicDBObject document = new BasicDBObject();
 		 Class objectType = anObject.getClass();
 		 document.put("Mensaje","se agrego");
-		 document.put("tipo","objectType.getSimpleName()");
+		 document.put("tipo",objectType.getSimpleName());
 		 document.put("fecha",new Date());
-		 printer.println("Un " + objectType.getSimpleName() + "");
+		 printer.println("Un " + objectType.getSimpleName() + " ");
 		 for (Field field : objectType.getDeclaredFields()) {
 		 field.setAccessible(true);
 		 printer.print("\tcon ");
-		 printer.print(field.getName());
+		 printer.print(field.getName()+" = ");
 		 printer.println(field.get(anObject));
 		 document.put(field.getName(), field.get(anObject));
 		 }

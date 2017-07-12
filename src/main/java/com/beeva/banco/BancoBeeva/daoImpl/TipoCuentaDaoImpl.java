@@ -24,7 +24,7 @@ public class TipoCuentaDaoImpl extends TipoCuentaDao{
 	@Transactional
 	public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta) {
 		entityManager.persist(tipoCuenta);
-		log.TipoCuentaLog(tipoCuenta);
+		log.ObjectLog(tipoCuenta);
 		return tipoCuenta;
 	}
 

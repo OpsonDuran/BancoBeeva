@@ -44,7 +44,7 @@ public class App
     	cliente.setNombre("Jose");
     	cliente.setApellido("Larios");
     	clienteDao.saveCliente(cliente);
-    	
+    	/*
     	TipoCuenta tipoCuenta =new TipoCuenta();
     	TipoCuentaDao tipoDao=(TipoCuentaDao)context.getBean(TipoCuentaDaoImpl.class);
     	tipoCuenta.setNombre("Debito");
