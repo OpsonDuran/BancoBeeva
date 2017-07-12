@@ -20,8 +20,8 @@ public class BancoLog {
 	public void clienteLog(Cliente cliente){
 		ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
 		MongoClient mongo =(MongoClient)context.getBean("logbanco");
-	    DB db= mongo.getDB("bancoapplog");
-		DBCollection table = db.getCollection("logcollections");
+	    DB db= mongo.getDB("bancolog");
+		DBCollection table = db.getCollection("logcollection");
 		BasicDBObject document = new BasicDBObject();
 		document.put("Mensaje","se agrego");
 		document.put("fecha",new Date());
@@ -34,8 +34,8 @@ public class BancoLog {
 	public void bancoLog(Banco banco){
 		ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
 		MongoClient mongo =(MongoClient)context.getBean("logbanco");
-	    DB db= mongo.getDB("bancoapplog");
-		DBCollection table = db.getCollection("logcollections");
+	    DB db= mongo.getDB("bancolog");
+		DBCollection table = db.getCollection("logcollection");
 		BasicDBObject document = new BasicDBObject();
 		document.put("Mensaje","se agrego");
 		document.put("fecha",new Date());
@@ -46,8 +46,8 @@ public class BancoLog {
 	public void bancosClientesLog(BancosClientes bancoClientes){
 		ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
 		MongoClient mongo =(MongoClient)context.getBean("logbanco");
-	    DB db= mongo.getDB("bancoapplog");
-		DBCollection table = db.getCollection("logcollections");
+	    DB db= mongo.getDB("bancolog");
+		DBCollection table = db.getCollection("logcollection");
 		BasicDBObject document = new BasicDBObject();
 		document.put("Mensaje","se agrego");
 		document.put("fecha",new Date());
@@ -59,8 +59,8 @@ public class BancoLog {
 	public void CuentaLog(Cuenta cuenta){
 		ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
 		MongoClient mongo =(MongoClient)context.getBean("logbanco");
-	    DB db= mongo.getDB("bancoapplog");
-		DBCollection table = db.getCollection("logcollections");
+	    DB db= mongo.getDB("bancolog");
+		DBCollection table = db.getCollection("logcollection");
 		BasicDBObject document = new BasicDBObject();
 		document.put("Mensaje","se agrego");
 		document.put("fecha",new Date());
@@ -74,8 +74,8 @@ public class BancoLog {
 	public void TipoCuentaLog(TipoCuenta tipoCuenta){
 		ApplicationContext context= new ClassPathXmlApplicationContext("core-context.xml");
 		MongoClient mongo =(MongoClient)context.getBean("logbanco");
-	    DB db= mongo.getDB("bancoapplog");
-		DBCollection table = db.getCollection("logcollections");
+	    DB db= mongo.getDB("bancolog");
+		DBCollection table = db.getCollection("logcollection");
 		BasicDBObject document = new BasicDBObject();
 		document.put("Mensaje","se agrego");
 		document.put("fecha",new Date());

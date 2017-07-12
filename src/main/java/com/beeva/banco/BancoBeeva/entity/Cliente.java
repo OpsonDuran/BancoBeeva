@@ -6,7 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * @author Armando Duran Salavdor
+ *
+ */
 @Entity
 @Table(name="cliente")
 public class Cliente {

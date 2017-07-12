@@ -4,7 +4,10 @@ import com.beeva.banco.BancoBeeva.dao.CuentaDao;
 import com.beeva.banco.BancoBeeva.daoImpl.CuentaAhorroDaoImpl;
 import com.beeva.banco.BancoBeeva.daoImpl.CuentaChequesDaoImpl;
 import com.beeva.banco.BancoBeeva.entity.Cuenta;
-
+/**
+ * @author Armando Duran Salavdor
+ *
+ */
 
 public class CuentaFactory {
 	public CuentaDao getImplements(Cuenta cuenta){

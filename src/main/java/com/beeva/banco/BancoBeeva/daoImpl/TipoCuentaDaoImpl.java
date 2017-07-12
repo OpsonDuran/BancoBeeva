@@ -11,7 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.beeva.banco.BancoBeeva.dao.TipoCuentaDao;
 import com.beeva.banco.BancoBeeva.entity.TipoCuenta;
 import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
-
+/**
+ * @author Armando Duran Salavdor
+ *
+ */
 @Repository
 public class TipoCuentaDaoImpl extends TipoCuentaDao{
 	@PersistenceContext
