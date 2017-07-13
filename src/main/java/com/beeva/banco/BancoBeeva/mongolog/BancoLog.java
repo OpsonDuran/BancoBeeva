@@ -40,12 +40,12 @@ public class BancoLog {
 		 document.put("Mensaje",operacion);
 		 document.put("tipo",objectType.getSimpleName());
 		 document.put("fecha",new Date());
-		 printer.println(operacion+" " + objectType.getSimpleName() + " ");
+		 printer.print(operacion+" " + objectType.getSimpleName() + " :");
 		 for (Field field : objectType.getDeclaredFields()) {
 		 field.setAccessible(true);
-		 printer.print("\tcon ");
+		 printer.print(" con ");
 		 printer.print(field.getName()+" = ");
-		 printer.println(field.get(anObject));
+		 printer.print(field.get(anObject));
 		 document.put(field.getName(), field.get(anObject));
 		 }
 		 printer.flush();

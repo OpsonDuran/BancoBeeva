@@ -1,6 +1,6 @@
 package com.beeva.banco.BancoBeeva.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 import com.beeva.banco.BancoBeeva.entity.Banco;
 
 /**
@@ -9,9 +9,9 @@ import com.beeva.banco.BancoBeeva.entity.Banco;
 
 public abstract class BancoDao {
 	public abstract Banco saveBanco(Banco banco);
-	public abstract Banco removeBanco(int id);
-	public abstract Banco updateBanco(int id);
+	public abstract void removeBanco(Banco banco);
+	public abstract Banco updateBanco(Banco banco);
 	public abstract Banco getBanco(int Id);
-	public abstract ArrayList<Banco> listBanco();
+	public abstract List<Banco> listBanco();
 
 }

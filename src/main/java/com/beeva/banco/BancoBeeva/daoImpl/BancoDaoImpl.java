@@ -1,6 +1,6 @@
 package com.beeva.banco.BancoBeeva.daoImpl;
-import java.util.ArrayList;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -26,20 +26,21 @@ public class BancoDaoImpl extends BancoDao{
 		return banco;
 	}
 
-	public Banco removeBanco(int id) {
-		return null;
+	public void removeBanco(Banco banco) {
+		banco= entityManager.find(Banco.class, banco.getIdBanco());
+		entityManager.remove(banco);
 	}
 
-	public Banco updateBanco(int id) {
-		return null;
+	public Banco updateBanco(Banco banco) {
+		return entityManager.merge(banco);
 	}
 
 	public Banco getBanco(int Id) {
 		return entityManager.find(Banco.class, Id);
 	}
 
-	public ArrayList<Banco> listBanco() {
-		return null;
+	public List<Banco> listBanco() {
+		return entityManager.createNamedQuery("banco.findAll").getResultList();
 	}
 
 }
