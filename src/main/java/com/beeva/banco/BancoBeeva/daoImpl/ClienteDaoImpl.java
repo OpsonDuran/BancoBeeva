@@ -25,7 +25,7 @@ public class ClienteDaoImpl extends ClienteDao{
 	@Transactional
 	public Cliente saveCliente(Cliente cliente) {
 		entityManager.persist(cliente);
-		log.ObjectLog(cliente);
+		log.ObjectLog(cliente ,"Save");
 		return cliente;
 	}
 

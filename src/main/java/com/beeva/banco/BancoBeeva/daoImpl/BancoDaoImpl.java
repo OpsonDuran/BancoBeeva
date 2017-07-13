@@ -22,7 +22,7 @@ public class BancoDaoImpl extends BancoDao{
 	@Transactional
 	public Banco saveBanco(Banco banco) {
 		entityManager.persist(banco);
-    	log.ObjectLog(banco);
+    	log.ObjectLog(banco,"Save");
 		return banco;
 	}
 

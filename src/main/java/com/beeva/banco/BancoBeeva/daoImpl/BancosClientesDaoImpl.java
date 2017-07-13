@@ -25,7 +25,7 @@ public class BancosClientesDaoImpl extends BancosClientesDao {
 	@Transactional
 	public BancosClientes saveBancosCLientes(BancosClientes bancosClientes) {
 		entityManager.persist(bancosClientes);
-		log.ObjectLog(bancosClientes);
+		log.ObjectLog(bancosClientes,"Save");
 		return bancosClientes;
 	}
 

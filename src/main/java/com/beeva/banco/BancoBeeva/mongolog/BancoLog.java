@@ -17,14 +17,14 @@ import com.mongodb.MongoClient;
 public class BancoLog {
 	
 	/* inserta  el objeto en Mongobd */
-	public void ObjectLog(Object clase){
+	public void ObjectLog(Object clase,String operacion){
 		ContextSing con= ContextSing.getInstance();
 		MongoClient mongo =(MongoClient)con.getContext().getBean("logbanco");
 	    DB db= mongo.getDB("bancolog");
 		DBCollection table = db.getCollection("logcollection");
 		
 		try {
-			table.insert(introspectInstance(clase,new PrintWriter(System.out)));
+			table.insert(introspectInstance(operacion,clase,new PrintWriter(System.out)));
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -33,14 +33,14 @@ public class BancoLog {
 	}
 	
 	/* hace una intrsopecion del objeto retornando un BasicDBObject */
-	private static BasicDBObject introspectInstance(Object anObject, PrintWriter printer) throws IllegalArgumentException, IllegalAccessException {
+	private static BasicDBObject introspectInstance(String operacion,Object anObject, PrintWriter printer) throws IllegalArgumentException, IllegalAccessException {
 
 		BasicDBObject document = new BasicDBObject();
 		 Class objectType = anObject.getClass();
-		 document.put("Mensaje","se agrego");
+		 document.put("Mensaje",operacion);
 		 document.put("tipo",objectType.getSimpleName());
 		 document.put("fecha",new Date());
-		 printer.println("Un " + objectType.getSimpleName() + " ");
+		 printer.println(operacion+" " + objectType.getSimpleName() + " ");
 		 for (Field field : objectType.getDeclaredFields()) {
 		 field.setAccessible(true);
 		 printer.print("\tcon ");
