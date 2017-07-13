@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ContextSing {
 	private static ContextSing instance;
-	private ApplicationContext context = new ClassPathXmlApplicationContext("jobSimple.xml");
+	private ApplicationContext context;
 	
 	private ContextSing(){
 		
@@ -20,7 +20,7 @@ public class ContextSing {
 	}
 		 
     public ApplicationContext getContext() {
-		 return this.context;
+		 return context = new  ClassPathXmlApplicationContext("core-context.xml");
 	}
 
 }

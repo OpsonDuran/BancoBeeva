@@ -50,7 +50,6 @@ public class App
     	TipoCuentaDao tipoDao=(TipoCuentaDao)context.getBean(TipoCuentaDaoImpl.class);
     	tipoCuenta.setNombre("Debito");
     	int idtc= tipoDao.saveTipoCuenta(tipoCuenta).getIdtipocuenta();
-    	/*
     	Cuenta cuenta= new Cuenta();
     	CuentaDao cuentaDao=(CuentaDao)context.getBean(CuentaChequesDaoImpl.class);
     	cuenta.setBalance(10000);
