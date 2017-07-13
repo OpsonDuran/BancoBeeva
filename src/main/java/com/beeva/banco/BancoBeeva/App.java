@@ -1,29 +1,16 @@
 package com.beeva.banco.BancoBeeva;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.beeva.banco.BancoBeeva.dao.BancoDao;
 import com.beeva.banco.BancoBeeva.dao.ClienteDao;
-import com.beeva.banco.BancoBeeva.dao.CuentaDao;
-import com.beeva.banco.BancoBeeva.dao.TipoCuentaDao;
 import com.beeva.banco.BancoBeeva.daoImpl.BancoDaoImpl;
 import com.beeva.banco.BancoBeeva.daoImpl.ClienteDaoImpl;
-import com.beeva.banco.BancoBeeva.daoImpl.CuentaChequesDaoImpl;
-import com.beeva.banco.BancoBeeva.daoImpl.TipoCuentaDaoImpl;
 import com.beeva.banco.BancoBeeva.entity.Banco;
 import com.beeva.banco.BancoBeeva.entity.Cliente;
-import com.beeva.banco.BancoBeeva.entity.Cuenta;
-import com.beeva.banco.BancoBeeva.entity.TipoCuenta;
-import com.beeva.banco.BancoBeeva.factory.CuentaFactory;
 import com.beeva.banco.BancoBeeva.singleton.ContextSing;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
 
 /**
- * @author Armando Duran Salavdor
+ * @author Armando Duran Salavador
  *
  */
 

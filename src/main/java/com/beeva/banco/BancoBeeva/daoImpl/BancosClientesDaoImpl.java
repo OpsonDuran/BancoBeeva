@@ -11,10 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.beeva.banco.BancoBeeva.dao.BancosClientesDao;
 import com.beeva.banco.BancoBeeva.entity.BancosClientes;
 import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
+
 /**
- * @author Armando Duran Salavdor
- *
+ * @author Armando Duran Salavador
  */
+
 @Repository
 public class BancosClientesDaoImpl extends BancosClientesDao {
 	@PersistenceContext

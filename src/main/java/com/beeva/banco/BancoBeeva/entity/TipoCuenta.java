@@ -6,9 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author Armando Duran Salavdor
- *
+ * @author Armando Duran Salavador
  */
+
 @Entity
 @Table(name="tipocuenta")
 public class TipoCuenta {

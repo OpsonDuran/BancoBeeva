@@ -1,13 +1,13 @@
 package com.beeva.banco.BancoBeeva.dao;
 
 import java.util.ArrayList;
-/**
- * @author Armando Duran Salavdor
- *
- */
-
 import com.beeva.banco.BancoBeeva.entity.Cliente;
 import com.beeva.banco.BancoBeeva.entity.Cuenta;
+
+/**
+ * @author Armando Duran Salavador
+ */
+
 public abstract class CuentaDao {
 
 	public abstract boolean Deposito(Cliente cliente,double dinero);

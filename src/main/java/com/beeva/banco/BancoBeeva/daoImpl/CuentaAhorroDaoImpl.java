@@ -12,10 +12,11 @@ import com.beeva.banco.BancoBeeva.dao.CuentaDao;
 import com.beeva.banco.BancoBeeva.entity.Cliente;
 import com.beeva.banco.BancoBeeva.entity.Cuenta;
 import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
+
 /**
- * @author Armando Duran Salavdor
- *
+ * @author Armando Duran Salavador
  */
+
 @Repository
 public class CuentaAhorroDaoImpl extends CuentaDao {
 	@PersistenceContext
