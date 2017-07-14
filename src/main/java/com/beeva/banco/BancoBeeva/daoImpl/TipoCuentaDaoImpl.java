@@ -1,6 +1,6 @@
 package com.beeva.banco.BancoBeeva.daoImpl;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,24 +25,19 @@ public class TipoCuentaDaoImpl extends TipoCuentaDao{
 	@Transactional
 	public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta) {
 		entityManager.persist(tipoCuenta);
-		log.ObjectLog(tipoCuenta ,"Save");
+		log.ObjectLog(tipoCuenta ,"Se guardo");
 		return tipoCuenta;
 	}
-
-	public TipoCuenta removeTipoCuenta(int id) {
-		return null;
-	}
-	
-	public TipoCuenta updateTipoCuenta(int id) {
-		return null;
-	}
-
+	@Transactional
 	public TipoCuenta getTipoCuenta(int Id) {
-		return null;
+		TipoCuenta consulta = entityManager.find(TipoCuenta.class, Id);
+		log.ObjectLog(consulta ,"Se consulto");
+		return consulta;
 	}
-
-	public ArrayList<TipoCuenta> listTipoCuenta() {
-		return null;
+    @Transactional
+	public List<TipoCuenta> listTipoCuenta() {
+    	List<TipoCuenta> list= entityManager.createQuery("from TipoCuenta").getResultList();
+    	return list;
 	}
 
 }

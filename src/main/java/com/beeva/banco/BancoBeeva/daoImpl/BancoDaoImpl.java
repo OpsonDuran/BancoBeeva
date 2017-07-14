@@ -22,25 +22,31 @@ public class BancoDaoImpl extends BancoDao{
 	@Transactional
 	public Banco saveBanco(Banco banco) {
 		entityManager.persist(banco);
-    	log.ObjectLog(banco,"Save");
+    	log.ObjectLog(banco,"Se guardo");
 		return banco;
 	}
-
+	@Transactional
 	public void removeBanco(Banco banco) {
 		banco= entityManager.find(Banco.class, banco.getIdBanco());
 		entityManager.remove(banco);
+    	log.ObjectLog(banco,"se elminio");
 	}
-
-	public Banco updateBanco(Banco banco) {
-		return entityManager.merge(banco);
+	@Transactional
+	public Banco updateBanco(Banco banco){
+		entityManager.merge(banco);
+    	log.ObjectLog(banco,"Se actualizo");
+		return banco;
 	}
-
+	@Transactional
 	public Banco getBanco(int Id) {
-		return entityManager.find(Banco.class, Id);
+		Banco consulta = entityManager.find(Banco.class, Id);
+    	log.ObjectLog(consulta,"Se consulto");
+		return consulta;
 	}
-
+	@Transactional
 	public List<Banco> listBanco() {
-		return entityManager.createNamedQuery("banco.findAll").getResultList();
+		List<Banco> list= entityManager.createQuery("from Banco").getResultList();
+	return list;
 	}
 
 }

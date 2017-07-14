@@ -1,6 +1,6 @@
 package com.beeva.banco.BancoBeeva.daoImpl;
 
-import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -22,26 +22,29 @@ public class CuentaDaoImpl extends CuentaDao {
 	@Transactional
 	public Cuenta saveCuenta(Cuenta cuenta) {
 		entityManager.persist(cuenta);
-		log.ObjectLog(cuenta, "save");
+		log.ObjectLog(cuenta, "Se guardo");
 		return cuenta;
 	}
-
+	@Transactional
 	public Cuenta removeCuenta(int Id) {
 		return null;
 	}
 	@Transactional
 	public Cuenta updateCuenta(Cuenta cuenta) {
 		entityManager.merge(cuenta);
-		log.ObjectLog(cuenta, "update");
+		log.ObjectLog(cuenta, "Se actualizo");
 		return cuenta;
 	}
-
-	public ArrayList<Cuenta> listCuenta() {
-		return null;
+	@Transactional
+	public List<Cuenta> listCuenta() {
+		List<Cuenta> list= entityManager.createQuery("from Cuenta").getResultList();
+		return list;
 	}
 
-	@Override
+	@Transactional
 	public Cuenta getCuenta(int Id) {
-		return entityManager.find(Cuenta.class, Id);
+		Cuenta result=entityManager.find(Cuenta.class, Id);
+		log.ObjectLog(result, "Se consulto");
+		return result;
 	}
 }
