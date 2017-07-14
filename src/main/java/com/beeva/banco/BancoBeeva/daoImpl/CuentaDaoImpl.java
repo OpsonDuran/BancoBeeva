@@ -12,28 +12,29 @@ import com.beeva.banco.BancoBeeva.dao.CuentaDao;
 import com.beeva.banco.BancoBeeva.entity.Cliente;
 import com.beeva.banco.BancoBeeva.entity.Cuenta;
 import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
-
 /**
  * @author Armando Duran Salavador
  */
 
 @Repository
-public class CuentaChequesDaoImpl extends CuentaDao{
+public class CuentaDaoImpl extends CuentaDao {
 	@PersistenceContext
 	EntityManager entityManager;
 	BancoLog log=new BancoLog();
 
-	@Transactional
+	
 	public boolean Deposito(Cliente cliente, double dinero) {
-		return false;
+		
+		return true;
 	}
 
 	public boolean Retiro(Cliente cliente, double dinero) {
 		return false;
 	}
-
+	@Transactional
 	public Cuenta saveCuenta(Cuenta cuenta) {
 		entityManager.persist(cuenta);
+		log.ObjectLog(cuenta, "save");
 		return cuenta;
 	}
 
