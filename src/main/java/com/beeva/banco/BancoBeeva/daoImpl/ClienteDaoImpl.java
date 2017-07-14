@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.beeva.banco.BancoBeeva.dao.ClienteDao;
+import com.beeva.banco.BancoBeeva.entity.Banco;
 import com.beeva.banco.BancoBeeva.entity.Cliente;
 import com.beeva.banco.BancoBeeva.mongolog.BancoLog;
 
@@ -38,7 +39,7 @@ public class ClienteDaoImpl extends ClienteDao{
 	}
 
 	public Cliente getCliente(int Id) {
-		return null;
+return null;
 	}
 
 	public ArrayList<Cliente> listClientes() {
