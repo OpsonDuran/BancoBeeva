@@ -23,7 +23,7 @@ public class CuentaFactory {
 		TipoCuentaDao cuentaDao = (TipoCuentaDao)con.getContext().getBean(TipoCuentaDaoImpl.class);
     	TipoCuenta tipcuenta = cuentaDao.getTipoCuenta(cuenta.getIdTipoCuenta());
     	
-		if(tipcuenta.getNombre().equals("Ahorro")){
+		if(tipcuenta.getNombre().equals("Ahorros")){
 			CuentaDaoInter account = new CuentaDAOImplAhorro();
 			return account;
 		}else{
