@@ -1,18 +1,14 @@
 package com.beeva.banco.BancoBeeva.view;
 
 import java.awt.Container;
-import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import java.awt.*;
 import java.awt.event.*;
 
-import javax.swing.*;
 
 import com.beeva.banco.BancoBeeva.dao.BancoDao;
 import com.beeva.banco.BancoBeeva.dao.BancosClientesDao;
@@ -32,11 +28,8 @@ import com.beeva.banco.BancoBeeva.entity.Cuenta;
 import com.beeva.banco.BancoBeeva.entity.TipoCuenta;
 import com.beeva.banco.BancoBeeva.factory.CuentaFactory;
 import com.beeva.banco.BancoBeeva.singleton.ContextSing;
-
-import java.util.*;
 import java.util.List;
-import java.io.*;
-import java.sql.*;
+
 
 /**
  * @author Armando Duran Salavador
@@ -46,12 +39,12 @@ import java.sql.*;
 public class Formulario extends JFrame{
 
     //instancia singleton context
-   private ContextSing con= ContextSing.getInstance();
-   private TipoCuentaDao tipoCuentaDao=(TipoCuentaDao)con.getContext().getBean(TipoCuentaDaoImpl.class);
-   private BancoDao bancoDao =(BancoDao) con.getContext().getBean(BancoDaoImpl.class);
-   private CuentaDao cuentaDao = (CuentaDao)con.getContext().getBean(CuentaDaoImpl.class);
-   private ClienteDao clienteDao = (ClienteDao) con.getContext().getBean(ClienteDaoImpl.class);
-   private BancosClientesDao bancoClietesDao=(BancosClientesDao)con.getContext().getBean(BancosClientesDaoImpl.class);
+   private static final ContextSing con= ContextSing.getInstance();
+   private static final TipoCuentaDao tipoCuentaDao=(TipoCuentaDao)con.getContext().getBean(TipoCuentaDaoImpl.class);
+   private static final BancoDao bancoDao =(BancoDao) con.getContext().getBean(BancoDaoImpl.class);
+   private static final CuentaDao cuentaDao = (CuentaDao)con.getContext().getBean(CuentaDaoImpl.class);
+   private static final ClienteDao clienteDao = (ClienteDao) con.getContext().getBean(ClienteDaoImpl.class);
+   private static final BancosClientesDao bancoClietesDao=(BancosClientesDao)con.getContext().getBean(BancosClientesDaoImpl.class);
 	
    //text
    private JLabel etiquetaNombreBanco;
@@ -69,13 +62,12 @@ public class Formulario extends JFrame{
    private JTextField balanceC;
    private JTextField balancetran;
    private JComboBox tipoCuentaC;
-   private JComboBox CuentaC;
+   private JComboBox cuentaC;
    
    //buttons
    private JButton agregaCliente;
    private JButton depositar;
    private JButton retirar;
-   private JButton aceptar;
    private JButton limpiar;
     
    
@@ -122,7 +114,7 @@ public class Formulario extends JFrame{
       tipoCuentaC = new JComboBox();
       balanceC = new JTextField(20);
       balancetran = new JTextField(20);
-      CuentaC = new JComboBox();
+      cuentaC = new JComboBox();
       
       //Anexo a contenedor
       
@@ -172,11 +164,11 @@ public class Formulario extends JFrame{
       
       contenedor.add(cuentaet);
       cuentaet.setBounds(10,460,160,45);
-      contenedor.add(CuentaC);
-      CuentaC.setBounds(130,460,200,45);
-      List<Cuenta> Cuenta= cuentaDao.listCuenta();
-    	for (Cuenta cuenta : Cuenta) {
-    	      CuentaC.addItem(cuenta.getIdCuenta());
+      contenedor.add(cuentaC);
+      cuentaC.setBounds(130,460,200,45);
+      List<Cuenta> cuentali= cuentaDao.listCuenta();
+    	for (Cuenta cuenta : cuentali) {
+    	      cuentaC.addItem(cuenta.getIdCuenta());
   		}
    
       contenedor.add(etiquetaBalancetran);
@@ -239,7 +231,7 @@ public class Formulario extends JFrame{
     	            {
     	            	
     	            	CuentaDao cuentaDao = (CuentaDao)con.getContext().getBean(CuentaDaoImpl.class);
-    	            	int idCuenta = (Integer)CuentaC.getSelectedItem();
+    	            	int idCuenta = (Integer)cuentaC.getSelectedItem();
     	            	double dinero=Double.parseDouble(balancetran.getText());
     	 	           	Cuenta cuenta = cuentaDao.getCuenta(idCuenta);
     	 	           	Cliente consult= clienteDao.getCliente(cuenta.getIdcliente());
@@ -258,7 +250,7 @@ public class Formulario extends JFrame{
  	            public void actionPerformed(ActionEvent ev)
  	            {
  	            CuentaDao cuentaDao = (CuentaDao)con.getContext().getBean(CuentaDaoImpl.class);
-            	int idCuenta = (Integer)CuentaC.getSelectedItem();
+            	int idCuenta = (Integer)cuentaC.getSelectedItem();
             	double dinero=Double.parseDouble(balancetran.getText());
  	           	Cuenta cuenta = cuentaDao.getCuenta(idCuenta);
  	           	Cliente consult= clienteDao.getCliente(cuenta.getIdcliente());
